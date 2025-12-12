@@ -1,47 +1,17 @@
-## 📌 Código-fonte analisado (UserOriginal.java)
+# Análise de Caixa Branca Estática – Java
 
-```java
-package login;
+Este repositório contém a análise de **caixa branca estática** de um código Java responsável pela verificação de usuários em um banco de dados MySQL.  
+A análise foi realizada sobre o **código-fonte original**, identificando falhas estruturais, organizacionais e de boas práticas, bem como a definição do grafo de fluxo, complexidade ciclomática e caminhos básicos.
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+---
 
-public class User {
-    public Connection conectarBD() {
-        Connection conn = null;
-        try {
-            Class.forName("com.mysql.Driver Manager").newInstance();
-            String url = "jdbc:mysql://127.0.0.1/test?user=lopes&password=123";
-            conn = DriverManager.getConnection(url);
-        } catch (Exception e) {
-        }
-        return conn;
-    }
+## 📌 Código-fonte analisado
 
-    public String nome = "";
-    public boolean result = false;
+O código analisado encontra-se no arquivo **UserOriginal.java**.  
+Este código foi reproduzido fielmente, sem alterações, exclusivamente para fins de análise.
 
-    public boolean verificarUsuario(String login, String senha) {
-        String sql = "";
-        Connection conn = conectarBD();
-
-        //INSTRUÇÃO SQL
-        sql += "select nome from usuarios ";
-        sql += "where login = " + "'" + login + "'";
-        sql += " and senha = " + "'" + senha + "';";
-
-        try {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-
-            if (rs.next()) {
-                result = true;
-                nome = rs.getString("nome");
-            }
-        } catch (Exception e) {
-        }
-        return result;
-    }
-}
+Principais características do código original:
+- Ausência de documentação
+- Uso de SQL por concatenação de strings
+- Falta de tratamento adequado de exceções
+- Não fechamento de conexões
